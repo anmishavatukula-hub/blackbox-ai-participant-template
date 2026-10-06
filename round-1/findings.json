@@ -26,7 +26,7 @@
     }
   },
   {
-    "type": "best_observed_configuration",
+    "type": "feature_effect",
     "feature": "overall_system",
     "direction": "best_observed",
     "strength": "strong",
