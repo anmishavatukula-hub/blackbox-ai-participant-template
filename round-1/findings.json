@@ -1,18 +1,40 @@
 {
   "round": "round-1",
-  "team": "BB-XXX",
-  "queries_used": 0,
-  "claims": [
-    {
-      "type": "feature_effect",
-      "feature": "x1",
-      "direction": "increases",
-      "strength": "strong",
-      "confidence": 0.0,
-      "evidence": {
-        "query_ids": [],
-        "summary": "Replace this example claim with your own. Every claim needs evidence."
-      }
+  "team": "BB-022",
+  "queries_used": 26,
+ "claims": [
+  {
+    "type": "feature_effect",
+    "feature": "badge_age_days",
+    "direction": "decreases",
+    "strength": "strong",
+    "confidence": 0.95,
+    "evidence": {
+      "query_ids": [],
+      "summary": "Reducing badge_age_days from approximately 43.8 to the minimum allowed value of 18 increased the observed score from 0.9563 to 0.9745."
     }
-  ]
+  },
+  {
+    "type": "feature_effect",
+    "feature": "recent_denials",
+    "direction": "decreases",
+    "strength": "strong",
+    "confidence": 0.95,
+    "evidence": {
+      "query_ids": [],
+      "summary": "Reducing recent_denials to 0 increased the observed score to approximately 0.9837."
+    }
+  },
+  {
+    "type": "best_observed_configuration",
+    "feature": "overall_system",
+    "direction": "best_observed",
+    "strength": "strong",
+    "confidence": 0.95,
+    "evidence": {
+      "query_ids": [26],
+      "summary": "The best observed result was 0.9876 APPROVE, with badge_age_days 18, clearance_level 100, history_score 300, recent_denials 0, requested_zone 4.5, site A, and tenure_years approximately 37.2."
+    }
+  }
+]
 }
