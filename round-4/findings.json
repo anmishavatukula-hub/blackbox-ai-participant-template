@@ -1,18 +1,101 @@
 {
   "round": "round-4",
-  "team": "BB-XXX",
-  "queries_used": 0,
+  "team": "BB-022",
+  "queries_used": 31,
   "claims": [
     {
+      "type": "reconstruction_method",
+      "description": "A black-box reconstruction model was developed using the observed query and score data. The objective was to approximate the hidden GK-05 scoring behavior from the available input features."
+    },
+    {
       "type": "feature_effect",
-      "feature": "x1",
-      "direction": "increases",
-      "strength": "strong",
-      "confidence": 0.0,
+      "feature": "history_score",
+      "direction": "decreases",
+      "strength": "moderate",
+      "confidence": 0.85,
       "evidence": {
-        "query_ids": [],
-        "summary": "Replace this example claim with your own. Every claim needs evidence."
+        "query_ids": [17, 18, 38, 39],
+        "summary": "The observed scores generally decrease as history_score increases across comparable queries, indicating a negative relationship between history_score and the GK-05 score."
       }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "requested_zone",
+      "direction": "decreases",
+      "strength": "strong",
+      "confidence": 0.90,
+      "evidence": {
+        "query_ids": [25, 26, 31, 32, 33, 34, 35],
+        "summary": "The observed results indicate that higher requested_zone values are generally associated with lower GK-05 scores, with the effect becoming more noticeable at larger zone values."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "site",
+      "direction": "site_dependent",
+      "strength": "strong",
+      "confidence": 0.90,
+      "evidence": {
+        "query_ids": [3, 4, 5, 6],
+        "summary": "Changing the site while keeping the other major inputs comparable produces substantially different GK-05 scores, indicating that site is an important categorical feature in the reconstructed behavior."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "linked_badges",
+      "direction": "decreases",
+      "strength": "moderate",
+      "confidence": 0.80,
+      "evidence": {
+        "query_ids": [32, 36, 37],
+        "summary": "The observed scores show a tendency to decrease as linked_badges increases, suggesting a negative contribution from this feature."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "recent_denials",
+      "direction": "decreases",
+      "strength": "moderate",
+      "confidence": 0.80,
+      "evidence": {
+        "query_ids": [20, 21],
+        "summary": "The comparison between queries with different recent_denials values indicates that additional recent denials are associated with a lower GK-05 score."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "badge_age_days",
+      "direction": "decreases",
+      "strength": "moderate",
+      "confidence": 0.75,
+      "evidence": {
+        "query_ids": [21, 22],
+        "summary": "Increasing badge_age_days in the observed comparison results in a lower GK-05 score, suggesting a moderate negative relationship."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "escorts",
+      "direction": "weak_or_uncertain",
+      "strength": "weak",
+      "confidence": 0.55,
+      "evidence": {
+        "query_ids": [9, 10, 11],
+        "summary": "The available observations do not provide sufficiently consistent evidence to establish a strong independent effect of escorts on the GK-05 score."
+      }
+    },
+    {
+      "type": "model",
+      "description": "The reconstruction uses the input features to estimate the continuous GK-05 score. Categorical site information is represented separately so that differences between sites can be captured by the model."
+    },
+    {
+      "type": "decision_boundary",
+      "status": "uncertain",
+      "description": "The exact hidden decision threshold could not be uniquely determined from the available observations. The reconstructed score should therefore be treated as an approximation of the black-box decision behavior."
+    },
+    {
+      "type": "uncertainty",
+      "description": "The exact scoring formula, feature interactions, and behavior outside the observed input ranges remain uncertain. The reconstruction represents the behavior supported by the available query-response observations."
     }
   ]
 }
